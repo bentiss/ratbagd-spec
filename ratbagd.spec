@@ -1,7 +1,7 @@
 %global libsystemd_version 229
 
 Name:           ratbagd
-Version:        0.1
+Version:        0.1.2
 Release:        1%{?dist}
 Summary:        System daemon to access configurable mice
 
@@ -54,12 +54,17 @@ make %{?_smp_mflags}
 %doc COPYING
 %{_bindir}/ratbagd
 %config %{_unitdir}/ratbagd.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.ratbag1.service
+%{_datadir}/dbus-1/system.d/org.freedesktop.ratbag1.conf
 
 %files python
 %{_bindir}/ratbagctl
 %{python3_sitelib}/%{name}/*
 
 %changelog
+* Mon Mar 14 2016 Peter Hutterer <peter.hutterer@redhat.com> 0.1.2-1
+- ratbagd 0.1.2
+
 * Thu Mar 10 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.1-1
 - ratbagd 0.2
 
