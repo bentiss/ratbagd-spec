@@ -1,8 +1,8 @@
 %global libsystemd_version 229
 
 Name:           ratbagd
-Version:        0.1.2
-Release:        2%{?dist}
+Version:        0.2
+Release:        1%{?dist}
 Summary:        System daemon to access configurable mice
 
 License:        MIT
@@ -11,7 +11,7 @@ Source0:        https://github.com/libratbag/%{name}/archive/%{version}/%{name}-
 
 BuildRequires:  autoconf automake libtool
 BuildRequires:  python3-devel
-BuildRequires:  libratbag-devel
+BuildRequires:  libratbag-devel >= 0.4
 %if 0%{?fedora} <= 23
 BuildRequires:  libsystemd libsystemd-devel == 229
 BuildRequires:  systemd systemd-devel
@@ -62,6 +62,9 @@ make %{?_smp_mflags}
 %{python3_sitelib}/%{name}/*
 
 %changelog
+* Wed Mar 16 2016 Peter Hutterer <peter.hutterer@redhat.com> 0.2-1
+- ratbagd 0.2
+
 * Mon Mar 14 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.1.2-2
 - compile for f22 too
 
