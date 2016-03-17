@@ -2,7 +2,7 @@
 
 Name:           ratbagd
 Version:        0.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        System daemon to access configurable mice
 
 License:        MIT
@@ -49,19 +49,31 @@ make %{?_smp_mflags}
 
 %install
 %make_install
+%if 0%{?fedora} == 22
+mkdir -p %{buildroot}%{_sysconfdir}/dbus-1/system.d
+mv %{buildroot}%{_datadir}/dbus-1/system.d/org.freedesktop.ratbag1.conf \
+	%{buildroot}%{_sysconfdir}/dbus-1/system.d/org.freedesktop.ratbag1.conf
+%endif
 
 %files
 %doc COPYING
 %{_bindir}/ratbagd
 %config %{_unitdir}/ratbagd.service
 %{_datadir}/dbus-1/system-services/org.freedesktop.ratbag1.service
+%if 0%{?fedora} > 22
 %{_datadir}/dbus-1/system.d/org.freedesktop.ratbag1.conf
+%else
+%{_sysconfdir}/dbus-1/system.d/org.freedesktop.ratbag1.conf
+%endif
 
 %files python
 %{_bindir}/ratbagctl
 %{python3_sitelib}/%{name}/*
 
 %changelog
+* Thu Mar 17 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.2-2
+- Fix "Permission denied" on F22
+
 * Wed Mar 16 2016 Peter Hutterer <peter.hutterer@redhat.com> 0.2-1
 - ratbagd 0.2
 
