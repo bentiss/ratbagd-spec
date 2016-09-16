@@ -2,7 +2,7 @@
 
 Name:           ratbagd
 Version:        0.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        System daemon to access configurable mice
 
 License:        MIT
@@ -71,6 +71,9 @@ mv %{buildroot}%{_datadir}/dbus-1/system.d/org.freedesktop.ratbag1.conf \
 %{python3_sitelib}/%{name}/*
 
 %changelog
+* Fri Sep 16 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.2-3
+- Rebuild for new libratbag
+
 * Thu Mar 17 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.2-2
 - Fix "Permission denied" on F22
 
