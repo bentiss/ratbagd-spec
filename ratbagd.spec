@@ -2,7 +2,7 @@
 
 Name:           ratbagd
 Version:        0.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        System daemon to access configurable mice
 
 License:        MIT
@@ -71,6 +71,9 @@ mv %{buildroot}%{_datadir}/dbus-1/system.d/org.freedesktop.ratbag1.conf \
 %{python3_sitelib}/%{name}/*
 
 %changelog
+* Wed Mar 22 2017 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.2-4
+- Rebuild for new libratbag
+
 * Fri Sep 16 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.2-3
 - Rebuild for new libratbag
 
