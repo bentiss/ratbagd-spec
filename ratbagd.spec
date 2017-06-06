@@ -1,5 +1,5 @@
 Name:           ratbagd
-Version:        0.3
+Version:        0.4
 Release:        1%{?dist}
 Summary:        System daemon to access configurable mice
 
@@ -51,6 +51,9 @@ export PYTHON="python3"
 %{python3_sitelib}/%{name}
 
 %changelog
+* Tue Jun 06 2017 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.4-1
+- ratbagd 0.4
+
 * Fri May 12 2017 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.3-1
 - ratbagd 0.3
 
